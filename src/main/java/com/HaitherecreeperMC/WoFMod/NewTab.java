@@ -3,12 +3,12 @@ package com.HaitherecreeperMC.WoFMod;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
-class Base$1
+class NewTab
   extends CreativeTabs
 {
-  Base$1(String $anonymous0)
+  NewTab(int tabIndex, String name)
   {
-    super($anonymous0);
+    super(tabIndex, name);
   }
   
   public Item getTabIconItem()

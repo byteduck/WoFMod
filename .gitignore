@@ -13,6 +13,10 @@ gradlew.bat
 gradlew
 gradle
 
+#eclipse
+eclipse
+bin
+
 # Windows Installer files
 *.cab
 *.msi

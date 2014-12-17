@@ -1,6 +1,9 @@
 package com.HaitherecreeperMC.WoFMod;
 
 import java.util.List;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -18,7 +21,8 @@ public class AnimusStone
   
   public AnimusStone()
   {
-    setCreativeTab(Base.woftab).setUnlocalizedName("AnimusStone").setTextureName("wofmod:AnimusStone");
+    setUnlocalizedName("AnimusStone");
+    //Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(this, 0, new ModelResourceLocation("modid:AnimusStone", "inventory"));
   }
   
   public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4)

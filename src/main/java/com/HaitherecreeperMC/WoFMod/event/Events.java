@@ -2,11 +2,13 @@ package com.HaitherecreeperMC.WoFMod.event;
 
 import com.HaitherecreeperMC.WoFMod.Base;
 
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.PlayerEvent;
-import cpw.mods.fml.common.gameevent.PlayerEvent.ItemCraftedEvent;
+
+
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 
 public class Events
 {
@@ -25,7 +27,7 @@ public class Events
       e.player.addStat(Base.getAnimusSword, 1);
     }
   }
-  
+  /**
   @SubscribeEvent
   public void OnCraftAnimusHelm(PlayerEvent.ItemCraftedEvent e)
   {
@@ -57,7 +59,7 @@ public class Events
       e.player.addStat(Base.getAnimusBoots, 1);
     }
   }
-  
+  **/
   @SubscribeEvent
   public void OnCraftAnimusStone(PlayerEvent.ItemCraftedEvent e)
   {

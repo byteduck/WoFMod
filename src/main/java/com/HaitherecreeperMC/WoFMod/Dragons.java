@@ -1,9 +1,11 @@
 package com.HaitherecreeperMC.WoFMod;
 
-import cpw.mods.fml.common.registry.EntityRegistry;
+
 import java.util.HashMap;
+
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityList.EntityEggInfo;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
 
 public class Dragons
 {

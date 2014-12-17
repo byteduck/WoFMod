@@ -1,9 +1,10 @@
 /*  1:   */ package com.HaitherecreeperMC.WoFMod;
 /*  2:   */ 
-/*  3:   */ import cpw.mods.fml.relauncher.Side;
-/*  4:   */ import cpw.mods.fml.relauncher.SideOnly;
-/*  5:   */ import net.minecraft.item.Item;
+/*  3:   */ /*  5:   */ import net.minecraft.item.Item;
 /*  6:   */ import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+/*  4:   */ 
 /*  7:   */ 
 /*  8:   */ public class ShinyItem
 /*  9:   */   extends Item

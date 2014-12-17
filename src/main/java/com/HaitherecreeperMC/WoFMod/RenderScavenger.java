@@ -1,13 +1,15 @@
 package com.HaitherecreeperMC.WoFMod;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.entity.RenderBiped;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
 import org.lwjgl.opengl.GL11;
 
 @SideOnly(Side.CLIENT)
@@ -19,12 +21,12 @@ public class RenderScavenger
   
   public RenderScavenger()
   {
-    super(new ModelBiped(), 0.5F);
+	  super(new RenderManager(null,null), new ModelBiped(), 0.5F);
   }
   
   protected void preRenderCallback(EntityScavenger par1EntityScavenger, float par2) {}
   
-  protected void func_82422_c()
+  public void func_82422_c()
   {
     GL11.glTranslatef(0.09375F, 0.1875F, 0.0F);
   }

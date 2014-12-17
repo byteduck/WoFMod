@@ -26,7 +26,6 @@ public class EntityDragons extends EntityAnimal
     {
         super(p_i1683_1_);
         this.setSize(0.9F, 1.3F);
-        this.getNavigator().setAvoidsWater(true);
         this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(5, new EntityAIWander(this, 1.0D));
         this.tasks.addTask(6, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0F));

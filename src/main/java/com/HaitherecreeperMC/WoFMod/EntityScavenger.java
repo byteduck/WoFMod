@@ -1,9 +1,9 @@
 package com.HaitherecreeperMC.WoFMod;
 
 import java.util.Random;
+
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.DataWatcher;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityCreature;
@@ -22,10 +22,8 @@ import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
 import net.minecraft.entity.ai.EntityAIOpenDoor;
 import net.minecraft.entity.ai.EntityAIRestrictOpenDoor;
 import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAITasks;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.monster.EntityCaveSpider;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntitySilverfish;
@@ -39,7 +37,6 @@ import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.pathfinding.PathNavigate;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
@@ -56,12 +53,8 @@ public class EntityScavenger
   {
     super(par1World);
     setSize(0.6F, 1.8F);
-    getNavigator().setBreakDoors(true);
-    getNavigator().setEnterDoors(true);
-    getNavigator().setCanSwim(true);
     setCanPickUpLoot(true);
     this.tasks.addTask(0, new EntityAISwimming(this));
-    this.tasks.addTask(1, new EntityAIAvoidEntity(this, EntityZombie.class, 8.0F, 0.8D, 0.8D));
     this.tasks.addTask(2, new EntityAIMoveIndoors(this));
     this.tasks.addTask(3, new EntityAIRestrictOpenDoor(this));
     this.tasks.addTask(4, new EntityAIOpenDoor(this, true));
@@ -69,12 +62,6 @@ public class EntityScavenger
     this.tasks.addTask(9, new EntityAIWander(this, 0.6D));
     this.tasks.addTask(11, new EntityAIWatchClosest(this, EntityLiving.class, 8.0F));
     this.tasks.addTask(12, new EntityAIAttackOnCollide(this, 1.0D, false));
-    this.tasks.addTask(13, new EntityAIAvoidEntity(this, EntityCreeper.class, 8.0F, 0.8D, 0.8D));
-    this.tasks.addTask(14, new EntityAIAvoidEntity(this, EntitySkeleton.class, 8.0F, 0.8D, 0.8D));
-    this.tasks.addTask(15, new EntityAIAvoidEntity(this, EntitySlime.class, 8.0F, 0.8D, 0.8D));
-    this.tasks.addTask(16, new EntityAIAvoidEntity(this, EntitySilverfish.class, 8.0F, 0.8D, 0.8D));
-    this.tasks.addTask(17, new EntityAIAvoidEntity(this, EntitySpider.class, 8.0F, 0.8D, 0.8D));
-    this.tasks.addTask(18, new EntityAIAvoidEntity(this, EntityCaveSpider.class, 8.0F, 0.8D, 0.8D));
     this.tasks.addTask(19, new EntityAIFollowParent(this, this.newPosX));
     this.targetTasks.addTask(0, new EntityAIHurtByTarget(this, true));
     if ((par1World != null) && (!par1World.isRemote)) {
@@ -122,7 +109,7 @@ public class EntityScavenger
   protected void addRandomArmor()
   {
     super.addRandomArmor();
-    if (this.rand.nextFloat() < (this.worldObj.difficultySetting == EnumDifficulty.HARD ? 0.05F : 0.01F))
+    if (this.rand.nextFloat() < (this.worldObj.getDifficulty() == EnumDifficulty.HARD ? 0.05F : 0.01F))
     {
       int i = this.rand.nextInt(3);
       if (i == 0) {
@@ -147,10 +134,10 @@ public class EntityScavenger
   
   public void attackEntityWithRangedAttack(EntityLivingBase par1EntityLivingBase, float par2)
   {
-    EntityArrow entityarrow = new EntityArrow(this.worldObj, this, par1EntityLivingBase, 1.6F, 14 - this.worldObj.difficultySetting.getDifficultyId() * 4);
+    EntityArrow entityarrow = new EntityArrow(this.worldObj, this, par1EntityLivingBase, 1.6F, 14 - this.worldObj.getDifficulty().getDifficultyId() * 4);
     int i = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, getHeldItem());
     int j = EnchantmentHelper.getEnchantmentLevel(Enchantment.punch.effectId, getHeldItem());
-    entityarrow.setDamage(par2 * 2.0F + this.rand.nextGaussian() * 0.25D + this.worldObj.difficultySetting.getDifficultyId() * 0.11F);
+    entityarrow.setDamage(par2 * 2.0F + this.rand.nextGaussian() * 0.25D + this.worldObj.getDifficulty().getDifficultyId() * 0.11F);
     if (i > 0) {
       entityarrow.setDamage(entityarrow.getDamage() + i * 0.5D + 0.5D);
     }
