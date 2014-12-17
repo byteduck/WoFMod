@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
-  "version": "${version}",
+  "modid": "wofmod",
+  "name": "Wings of Fire Mod",
+  "description": "Wings of Fire in Minecraft!",
+  "version": "1.8(0.1)",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["Codepixl"],
+  "credits": "Tui T. Sutherland for the whole series, and Codepixl (Me) for making the mod.",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
